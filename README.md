@@ -32,7 +32,7 @@ $ nix-shell https://github.com/nix-community/nix-environments/archive/master.tar
 To apply custom modification one can also import environments into their own `shell.nix` files and
 override them. Note that this approach does currently not work for buildFHSUserEnv-based environments!
 
-```
+```nix
 { pkgs ? import <nixpkgs> {} }:
 let
   envs = (import (builtins.fetchTarball {
