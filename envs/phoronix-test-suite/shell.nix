@@ -1,7 +1,8 @@
-with import <nixpkgs> {};
-stdenv.mkDerivation {
-  name = "env";
-  buildInputs = [
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.stdenv.mkDerivation {
+  name = "phoronix-env";
+  buildInputs = with pkgs; [
     php
     autoreconfHook
     popt
