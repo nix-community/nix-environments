@@ -44,3 +44,7 @@ in (phoronix.overrideAttrs (old: {
   buildInputs = old.buildInputs ++ [ pkgs.python3 ];
 }))
 ```
+
+## Similar projects
+
+- generates generic templates for different languages: https://github.com/kampka/nixify
