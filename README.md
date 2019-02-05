@@ -17,12 +17,12 @@ What environments should **not** include:
 
 ## Current available environments
 
-| Name                                                      | Attribute             |
-|-----------------------------------------------------------|-----------------------|
-| [Github Pages](envs/github-pages/README.md)               | `github-pages`        |
-| [OpenWRT](envs/openwrt/README.md)                         | `openwrt`             |
-| [Phoronix test suite](envs/phoronix-test-suite/README.md) | `phoronix-test-suite` |
-| [SPEC benchmark](envs/spec-benchmark/README.md)           | `spec-benchmark`      |
+| Name                                            | Attribute              |
+|-------------------------------------------------|------------------------|
+| [Github Pages](envs/github-pages)               | `github-pages`         |
+| [OpenWRT](envs/openwrt)                         | `openwrt`              |
+| [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite`  |
+| [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`       |
 
 ## How to use
 
