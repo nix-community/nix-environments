@@ -15,6 +15,15 @@ What environments should **not** include:
 
 - opinionated, user-specific dependencies for example editors or favorite debugging tools
 
+## Current available environments
+
+| Name                                                      | Attribute             |
+|-----------------------------------------------------------|-----------------------|
+| [Github Pages](envs/github-pages/README.md)               | `github-pages`        |
+| [OpenWRT](envs/openwrt/README.md)                         | `openwrt`             |
+| [Phoronix test suite](envs/phoronix-test-suite/README.md) | `phoronix-test-suite` |
+| [SPEC benchmark](envs/spec-benchmark/README.md)           | `spec-benchmark`      |
+
 ## How to use
 
 All environments referenced in [default.nix](default.nix) can be loaded by running nix-shell like that:
@@ -44,15 +53,6 @@ in (phoronix.overrideAttrs (old: {
   buildInputs = old.buildInputs ++ [ pkgs.python3 ];
 }))
 ```
-
-## Current available environments
-
-| Name                                                      | Path                  |
-|-----------------------------------------------------------|-----------------------|
-| [Github Pages](envs/github-pages/README.md)               | `github-pages`        |
-| [OpenWRT](envs/openwrt/README.md)                         | `openwrt`             |
-| [Phoronix test suite](envs/phoronix-test-suite/README.md) | `phoronix-test-suite` |
-| [SPEC benchmark](envs/spec-benchmark/README.md)           | `spec-benchmark`      |
 
 ## Similar projects
 
