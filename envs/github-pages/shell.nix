@@ -1,9 +1,9 @@
-with import <nixpkgs> {};
+{ pkgs ? import <nixpkgs> {} }:
 
-stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation {
   name = "env";
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     libxslt
     ruby
     bashInteractive
