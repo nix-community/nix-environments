@@ -45,6 +45,15 @@ in (phoronix.overrideAttrs (old: {
 }))
 ```
 
+## Current available environments
+
+| Name                                                      | Path                  |
+|-----------------------------------------------------------|-----------------------|
+| [Github Pages](envs/github-pages/README.md)               | `github-pages`        |
+| [OpenWRT](envs/openwrt/README.md)                         | `openwrt`             |
+| [Phoronix test suite](envs/phoronix-test-suite/README.md) | `phoronix-test-suite` |
+| [SPEC benchmark](envs/spec-benchmark/README.md)           | `spec-benchmark`      |
+
 ## Similar projects
 
 - generates generic templates for different languages: https://github.com/kampka/nixify
