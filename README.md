@@ -17,12 +17,13 @@ What environments should **not** include:
 
 ## Current available environments
 
-| Name                                            | Attribute              |
-|-------------------------------------------------|------------------------|
-| [Github Pages](envs/github-pages)               | `github-pages`         |
-| [OpenWRT](envs/openwrt)                         | `openwrt`              |
-| [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite`  |
-| [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`       |
+| Name                                            | Attribute             |
+|-------------------------------------------------|-----------------------|
+| [Arduino](envs/arduino)                         | `arduino`             |
+| [Github Pages](envs/github-pages)               | `github-pages`        |
+| [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite` |
+| [OpenWRT](envs/openwrt)                         | `openwrt`             |
+| [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`      |
 
 ## How to use
 
