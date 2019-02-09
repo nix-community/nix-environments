@@ -1,4 +1,5 @@
 # Nix-environments
+[![Build Status](https://travis-ci.com/nix-community/nix-environments.svg?branch=master)](https://travis-ci.com/nix-community/nix-environments)
 
 Repository to maintain out-of-tree shell.nix files.
 
