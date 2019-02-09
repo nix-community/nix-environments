@@ -8,3 +8,8 @@ to avoid the use of [patchelf](https://nixos.org/patchelf.html).
 The environment was only tested with an ESP32. It might be that
 other targets require additional dependencies. Just make a pull request
 in this case. If that does not work, you might as well try platformio.
+
+```console
+$ nix-shell https://github.com/nix-community/nix-environments/archive/master.tar.gz -A arduino
+[nix-shell] $ arduino
+```
