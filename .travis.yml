@@ -1,0 +1,2 @@
+language: nix
+script: nix-instantiate default.nix
