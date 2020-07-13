@@ -12,9 +12,10 @@ mkShell {
 
   # Make UTF8 the default as it's more sane
   LANG = "en_US.UTF-8";
+  # https://nixos.org/nixpkgs/manual/#locales
+  LOCALE_ARCHIVE =
+    optionalString isLinux "${glibcLocales}/lib/locale/locale-archive";
   shellHook = ''
-      # https://nixos.org/nixpkgs/manual/#locales
-      export optionalString isLinux LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive
       # JRuby wants to install Gem's in the nix-store which is read-only
       # set GEM_HOME to make it a writable directory
     	export GEM_HOME=$(${jruby}/bin/ruby -e 'puts Gem.user_dir')
