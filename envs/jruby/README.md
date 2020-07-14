@@ -1,3 +1,3 @@
 # JRuby
 
-Environment to build and run [JRuby](https://www.jruby.org/).
+Build environment for [JRuby](https://www.jruby.org/) gems.
