@@ -21,6 +21,7 @@ What environments should **not** include:
 | Name                                            | Attribute             |
 |-------------------------------------------------|-----------------------|
 | [Arduino](envs/arduino)                         | `arduino`             |
+| [Jruby](envs/jruby)                             | `jruby`               |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
 | [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite` |
 | [OpenWRT](envs/openwrt)                         | `openwrt`             |
