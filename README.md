@@ -60,3 +60,4 @@ in (phoronix.overrideAttrs (old: {
 ## Similar projects
 
 - generates generic templates for different languages: https://github.com/kampka/nixify
+- also templates for different languages: https://github.com/mrVanDalo/nix-shell-mix
