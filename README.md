@@ -23,6 +23,7 @@ What environments should **not** include:
 | [Arduino](envs/arduino)                         | `arduino`             |
 | [Jruby](envs/jruby)                             | `jruby`               |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
+| [Homeassistant](envs/home-assistant)            | `home-assistant`      |
 | [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite` |
 | [OpenWRT](envs/openwrt)                         | `openwrt`             |
 | [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`      |
