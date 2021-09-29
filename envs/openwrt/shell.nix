@@ -21,6 +21,8 @@ let
       unzip
       utillinux
       python2
+      python3.6
+      rsync
       patch
       wget
       file
