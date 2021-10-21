@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> { } }:
 with pkgs;
 with stdenv;
-with stdenv.lib;
+with lib;
 mkShell {
   name = "jruby-shell";
 
