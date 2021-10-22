@@ -24,6 +24,7 @@ What environments should **not** include:
 | [Jruby](envs/jruby)                             | `jruby`               |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
 | [Homeassistant](envs/home-assistant)            | `home-assistant`      |
+| [Nannou](envs/nannou)                           | `nannou`              |
 | [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite` |
 | [OpenWRT](envs/openwrt)                         | `openwrt`             |
 | [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`      |
