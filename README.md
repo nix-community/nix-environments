@@ -30,6 +30,8 @@ What environments should **not** include:
 
 ## How to use
 
+### Stable Nix
+
 All environments referenced in [default.nix](default.nix) can be loaded by running nix-shell like that:
 
 ```console
@@ -56,6 +58,37 @@ in (phoronix.overrideAttrs (old: {
   # this will append python to the existing dependencies
   buildInputs = old.buildInputs ++ [ pkgs.python3 ];
 }))
+```
+
+### Nix Flakes
+
+Nix-environments are also available as Flake outputs. Flakes are an [experimental new way to handle Nix expressions](https://nixos.wiki/wiki/Flakes).
+
+For dropping into the environment for the OpenWRT project, just run:
+
+```
+nix develop github:nix-community/nix-environments#openwrt
+```
+
+The last part is a flake URL and is an abbreviation of `github:nix-community/nix-environments#devShells.SYSTEM.openwrt`, where `SYSTEM` is your current system, e.g. `x86_64-linux`.
+
+You can also use these environments in your own flake and extend them:
+
+```nix
+{
+  inputs.nix-environments.url = "github:nix-community/nix-environments";
+
+  outputs = { self, nixpkgs, nix-environments }: let
+    # Replace this string with your actual system, e.g. "x86_64-linux"
+    system = "SYSTEM";
+  in {
+    devShell.${system} = let
+        pkgs = import nixpkgs { inherit system; };
+      in nix-environments.devShells.${system}.phoronix-test-suite.overrideAttrs (old: {
+        buildInputs = old.buildInputs ++ [ pkgs.python3 ];
+      });
+  };
+}
 ```
 
 ## Similar projects
