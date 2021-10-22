@@ -1,3 +1,4 @@
+#  A Creative Coding Framework for Rust.
 { pkgs ? import <nixpkgs> }:
 
 pkgs.mkShell {
