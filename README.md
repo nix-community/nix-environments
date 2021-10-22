@@ -27,6 +27,7 @@ What environments should **not** include:
 | [Phoronix test suite](envs/phoronix-test-suite) | `phoronix-test-suite` |
 | [OpenWRT](envs/openwrt)                         | `openwrt`             |
 | [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`      |
+| [Yocto](envs/yocto)                             | `yocto`               |
 
 ## How to use
 
