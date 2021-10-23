@@ -68,7 +68,7 @@ Nix-environments are also available as Flake outputs. Flakes are an [experimenta
 For dropping into the environment for the OpenWRT project, just run:
 
 ```
-nix develop github:nix-community/nix-environments#openwrt
+nix develop --no-write-lock-file github:nix-community/nix-environments#openwrt
 ```
 
 The last part is a flake URL and is an abbreviation of `github:nix-community/nix-environments#devShells.SYSTEM.openwrt`, where `SYSTEM` is your current system, e.g. `x86_64-linux`.
