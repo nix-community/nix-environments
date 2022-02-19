@@ -28,6 +28,7 @@ What environments should **not** include:
 | [OpenWRT](envs/openwrt)                         | `openwrt`             |
 | [SPEC benchmark](envs/spec-benchmark)           | `spec-benchmark`      |
 | [Yocto](envs/yocto)                             | `yocto`               |
+| [Xilinx vitis](envs/xilinx-vitis)               | `xilinx-vitis`        |
 
 ## How to use
 
