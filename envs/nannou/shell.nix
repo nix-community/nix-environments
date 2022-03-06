@@ -9,13 +9,13 @@ pkgs.mkShell {
     alsa-lib
     cmake
     openssl
-    xlibs.libxcb
+    xorg.libxcb
   ];
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
-    xlibs.libX11
-    xlibs.libXcursor
-    xlibs.libXrandr
-    xlibs.libXi
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXi
     vulkan-loader
   ]);
 }
