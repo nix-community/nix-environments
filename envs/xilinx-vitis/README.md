@@ -3,7 +3,13 @@
 After entering the fhs environment shell provided by
 
 ```console
-$ nix run github:nix-community/nix-environments#xilinx-vitis
+$ nix develop --no-write-lock-file github:nix-community/nix-environments#xilinx-vitis
+```
+
+or 
+
+``` console
+$ nix-shell https://github.com/nix-community/nix-environments/archive/master.tar.gz -A  xilinx-vitis
 ```
 
 one can run the web installer downloaded from the xilinx website.
