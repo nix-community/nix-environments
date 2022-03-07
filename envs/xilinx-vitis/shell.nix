@@ -1,9 +1,9 @@
 { pkgs ? import <nixpkgs> {}
-, runScript ? "bash -c"
+, runScript ? "bash"
 , xilinxName ? "xilinx-env"
 }:
 
-pkgs.buildFHSUserEnv {
+(pkgs.buildFHSUserEnv {
   name = xilinxName;
   inherit runScript;
   targetPkgs = pkgs: with pkgs; [
@@ -43,4 +43,4 @@ pkgs.buildFHSUserEnv {
   profile = ''
     source /opt/xilinx/Vitis/*/settings64.sh
   '';
-}
+}).env
