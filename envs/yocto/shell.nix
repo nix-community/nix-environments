@@ -19,6 +19,7 @@ let
         hostname
         kconfig-frontends
         lzma
+        lz4
         ncurses
         patch
         perl
