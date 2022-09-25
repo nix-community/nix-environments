@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {} }: {
   arduino = import ./envs/arduino/shell.nix { inherit pkgs; };
+  cc2538-bsl = import ./envs/cc2538-bsl/shell.nix { inherit pkgs; };
   github-pages = import ./envs/github-pages/shell.nix { inherit pkgs; };
   home-assistant = import ./envs/home-assistant/shell.nix { inherit pkgs; };
   nannou = import ./envs/nannou/shell.nix { inherit pkgs; };

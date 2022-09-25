@@ -20,6 +20,7 @@ What environments should **not** include:
 | Name                                            | Attribute             |
 |-------------------------------------------------|-----------------------|
 | [Arduino](envs/arduino)                         | `arduino`             |
+| [cc2538-bsl](envs/cc2538-bsl)                   | `cc2538-bsl`          |
 | [Jruby](envs/jruby)                             | `jruby`               |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
 | [Homeassistant](envs/home-assistant)            | `home-assistant`      |
