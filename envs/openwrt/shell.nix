@@ -19,7 +19,7 @@ let
       gnumake
       gcc
       unzip
-      utillinux
+      util-linux
       python2
       python3.6
       rsync
