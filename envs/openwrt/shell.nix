@@ -28,7 +28,7 @@ let
       file
       subversion
       which
-      pkgconfig
+      pkg-config
       openssl
       fixWrapper
       systemd

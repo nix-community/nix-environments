@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation {
     ruby
     bashInteractive
     zlib
-    pkgconfig
+    pkg-config
     libxml2
     bundler
   ];
