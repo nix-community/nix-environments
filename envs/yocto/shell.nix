@@ -18,7 +18,7 @@ let
         gnumake
         hostname
         kconfig-frontends
-        lzma
+        xz
         ncurses
         patch
         perl
