@@ -56,9 +56,6 @@ let
                                   ${wrapperEnvar} \
                                   $BB_ENV_PASSTHROUGH_ADDITIONS "
 
-        # keep compatibility with version earlier to kirkstone
-        export BB_ENV_EXTRAWHITE="$BB_ENV_PASSTHROUGH_ADDITIONS"
-
         # source the config for bibake equal to --postread
         export BBPOSTCONF="${nixconf}"
       '';
