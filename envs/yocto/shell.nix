@@ -18,6 +18,7 @@ let
         gnumake
         hostname
         kconfig-frontends
+        lz4
         xz
         ncurses
         patch
@@ -37,23 +38,23 @@ let
         # TODO limit export to native pkgs?
         nixconf = pkgs.writeText "nixvars.conf" ''
           # This exports the variables to actual build environments
-          # From BB_ENV_EXTRAWHITE
+          # From BB_ENV_PASSTHROUGH_ADDITIONS
           export LOCALE_ARCHIVE
           export ${wrapperEnvar}
           export NIX_DONT_SET_RPATH = "1"
 
           # Exclude these when hashing
           # the packages in yocto
-          BB_HASHBASE_WHITELIST += " LOCALE_ARCHIVE \
+          BB_BASEHASH_IGNORE_VARS += " LOCALE_ARCHIVE \
                                     NIX_DONT_SET_RPATH \
                                     ${wrapperEnvar} "
         '';
       in
       ''
         # These are set by buildFHSUserEnvBubblewrap
-        export BB_ENV_EXTRAWHITE=" LOCALE_ARCHIVE \
+        export BB_ENV_PASSTHROUGH_ADDITIONS=" LOCALE_ARCHIVE \
                                   ${wrapperEnvar} \
-                                  $BB_ENV_EXTRAWHITE "
+                                  $BB_ENV_PASSTHROUGH_ADDITIONS "
 
         # source the config for bibake equal to --postread
         export BBPOSTCONF="${nixconf}"
