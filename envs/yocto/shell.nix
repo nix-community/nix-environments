@@ -38,27 +38,37 @@ let
     extraOutputsToInstall = [ "dev" ];
     profile =
       let
-        wrapperEnvar = "NIX_CC_WRAPPER_TARGET_HOST_${pkgs.stdenv.cc.suffixSalt}";
+        inherit (pkgs) lib;
+
+        setVars = {
+          "NIX_DONT_SET_RPATH" = "1";
+        };
+
+        exportVars = [
+          "LOCALE_ARCHIVE"
+          "NIX_CC_WRAPPER_TARGET_HOST_${pkgs.stdenv.cc.suffixSalt}"
+        ];
+
+        exports =
+          (builtins.attrValues (builtins.mapAttrs (n: v: "export ${n}= \"${v}\"") setVars)) ++
+          (builtins.map (v: "export ${v}") exportVars);
+
+        passthroughVars = (builtins.attrNames setVars) ++ exportVars;
+
         # TODO limit export to native pkgs?
         nixconf = pkgs.writeText "nixvars.conf" ''
           # This exports the variables to actual build environments
           # From BB_ENV_PASSTHROUGH_ADDITIONS
-          export LOCALE_ARCHIVE
-          export ${wrapperEnvar}
-          export NIX_DONT_SET_RPATH = "1"
+          ${lib.strings.concatStringsSep "\n" exports}
 
           # Exclude these when hashing
           # the packages in yocto
-          BB_BASEHASH_IGNORE_VARS += " LOCALE_ARCHIVE \
-                                    NIX_DONT_SET_RPATH \
-                                    ${wrapperEnvar} "
+          BB_BASEHASH_IGNORE_VARS += "${lib.strings.concatStringsSep " " passthroughVars}"
         '';
       in
       ''
         # These are set by buildFHSUserEnvBubblewrap
-        export BB_ENV_PASSTHROUGH_ADDITIONS=" LOCALE_ARCHIVE \
-                                  ${wrapperEnvar} \
-                                  $BB_ENV_PASSTHROUGH_ADDITIONS "
+        export BB_ENV_PASSTHROUGH_ADDITIONS="${lib.strings.concatStringsSep " " passthroughVars}"
 
         # source the config for bibake equal to --postread
         export BBPOSTCONF="${nixconf}"
