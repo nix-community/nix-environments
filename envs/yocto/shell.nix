@@ -47,6 +47,9 @@ let
         exportVars = [
           "LOCALE_ARCHIVE"
           "NIX_CC_WRAPPER_TARGET_HOST_${pkgs.stdenv.cc.suffixSalt}"
+          "NIX_CFLAGS_COMPILE"
+          "NIX_CFLAGS_LINK"
+          "NIX_LDFLAGS"
         ];
 
         exports =
