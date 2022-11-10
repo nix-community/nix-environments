@@ -19,7 +19,6 @@ let
         hostname
         kconfig-frontends
         lz4
-        xz
         ncurses
         patch
         perl
@@ -29,6 +28,7 @@ let
         util-linux
         wget
         which
+        xz
       ]);
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
