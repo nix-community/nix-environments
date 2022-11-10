@@ -4,6 +4,7 @@ let
   fhs = pkgs.buildFHSUserEnvBubblewrap {
     name = "yocto-fhs";
     targetPkgs = pkgs: (with pkgs; [
+        attr
         bc
         binutils
         bzip2
@@ -18,6 +19,7 @@ let
         gnumake
         hostname
         kconfig-frontends
+        libxcrypt
         lz4
         ncurses
         patch
@@ -29,6 +31,8 @@ let
         wget
         which
         xz
+        zlib
+        zstd
       ]);
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
