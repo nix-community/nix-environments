@@ -71,6 +71,11 @@ let
         '';
       in
       ''
+        # buildFHSUserEnvBubblewrap configures ld.so.conf while buildFHSUserEnv additionally sets the LD_LIBRARY_PATH.
+        # This is redundant, and incorrectly overrides the RPATH of yocto-built binaries causing the dynamic loader
+        # to load libraries from the host system that they were not built against, instead of those from yocto.
+        unset LD_LIBRARY_PATH
+
         # By default gcc-wrapper will compile executables that specify a dynamic loader that will ignore the FHS
         # ld-config causing unexpected libraries to be loaded when when the executable is run.
         export NIX_DYNAMIC_LINKER_${pkgs.stdenv.cc.suffixSalt}="/lib/ld-linux-x86-64.so.2"
