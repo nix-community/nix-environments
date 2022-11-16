@@ -50,6 +50,7 @@ let
           "NIX_CFLAGS_COMPILE"
           "NIX_CFLAGS_LINK"
           "NIX_LDFLAGS"
+          "NIX_DYNAMIC_LINKER_${pkgs.stdenv.cc.suffixSalt}"
         ];
 
         exports =
@@ -70,6 +71,10 @@ let
         '';
       in
       ''
+        # By default gcc-wrapper will compile executables that specify a dynamic loader that will ignore the FHS
+        # ld-config causing unexpected libraries to be loaded when when the executable is run.
+        export NIX_DYNAMIC_LINKER_${pkgs.stdenv.cc.suffixSalt}="/lib/ld-linux-x86-64.so.2"
+
         # These are set by buildFHSUserEnvBubblewrap
         export BB_ENV_PASSTHROUGH_ADDITIONS="${lib.strings.concatStringsSep " " passthroughVars}"
 
