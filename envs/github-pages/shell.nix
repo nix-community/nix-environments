@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 pkgs.stdenv.mkDerivation {
   name = "env";
@@ -11,5 +13,5 @@ pkgs.stdenv.mkDerivation {
     pkg-config
     libxml2
     bundler
-  ];
+  ] ++ extraPkgs;
 }

@@ -1,4 +1,5 @@
 { pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
 , runScript ? "bash"
 , xilinxName ? "xilinx-env"
 }:
@@ -38,7 +39,7 @@
     (lib.hiPrio gcc)
     unzip
     nettools
-  ];
+  ] ++ extraPkgs;
   multiPkgs = null;
   profile = ''
     export LC_NUMERIC="en_US.UTF-8"

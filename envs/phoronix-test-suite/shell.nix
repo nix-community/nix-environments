@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 pkgs.stdenv.mkDerivation {
   name = "phoronix-env";
@@ -13,6 +15,6 @@ pkgs.stdenv.mkDerivation {
     glibc.out
     glibc.static
     bc
-  ];
+  ] ++ extraPkgs;
   hardeningDisable = [ "all" ];
 }

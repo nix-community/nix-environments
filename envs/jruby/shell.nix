@@ -1,11 +1,14 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
+
 with pkgs;
 with stdenv;
 with lib;
 mkShell {
   name = "jruby-shell";
 
-  buildInputs = [ jruby cacert ];
+  buildInputs = [ jruby cacert ] ++ extraPkgs;
 
   # Likely want a CA file; so lets add one.
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";

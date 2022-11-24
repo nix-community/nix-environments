@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 let
   python3withDeps = pkgs.python3.buildEnv.override {
@@ -11,5 +13,5 @@ let
 in
 
 pkgs.mkShell {
-  buildInputs = [ python3withDeps ];
+  buildInputs = [ python3withDeps ] ++ extraPkgs;
 }
