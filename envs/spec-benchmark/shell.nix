@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 let
   specgcc = pkgs.gcc6;
@@ -25,7 +27,7 @@ let
       which
       fixWrapper
       binutils
-    ];
+    ] ++ extraPkgs;
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
     profile = ''

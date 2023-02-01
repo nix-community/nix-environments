@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 let
   fixWrapper = pkgs.runCommand "fix-wrapper" {} ''
@@ -38,7 +40,7 @@ let
       zlib
       zlib.static
       glibc.static
-    ];
+    ] ++ extraPkgs;
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
     profile = ''

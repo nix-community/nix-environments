@@ -1,5 +1,7 @@
 #  A Creative Coding Framework for Rust.
-{ pkgs ? import <nixpkgs> }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
@@ -10,7 +12,7 @@ pkgs.mkShell {
     cmake
     openssl
     xorg.libxcb
-  ];
+  ] ++ extraPkgs;
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
     xorg.libX11
     xorg.libXcursor

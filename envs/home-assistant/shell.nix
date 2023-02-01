@@ -1,4 +1,7 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
+
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     bashInteractive
@@ -20,5 +23,5 @@ pkgs.mkShell {
     udev
     zlib
     ffmpeg
-  ];
+  ] ++ extraPkgs;
 }

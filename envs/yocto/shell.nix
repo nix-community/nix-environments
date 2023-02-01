@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 let
   fhs = pkgs.buildFHSUserEnvBubblewrap {
@@ -33,7 +35,7 @@ let
         xz
         zlib
         zstd
-      ]);
+      ] ++ extraPkgs);
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
     profile =

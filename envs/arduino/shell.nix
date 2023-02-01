@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}
+, extraPkgs ? []
+}:
 
 (pkgs.buildFHSUserEnv {
   name = "arduino-env";
@@ -9,6 +11,6 @@
     (python3.withPackages(ps: [
       ps.pyserial
     ]))
-  ];
+  ] ++ extraPkgs;
   multiPkgs = null;
 }).env
