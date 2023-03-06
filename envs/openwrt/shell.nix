@@ -22,8 +22,7 @@ let
       gcc
       unzip
       util-linux
-      python2
-      python3.6
+      python3
       rsync
       patch
       wget
