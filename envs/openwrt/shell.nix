@@ -44,6 +44,8 @@ let
     extraOutputsToInstall = [ "dev" ];
     profile = ''
       export hardeningDisable=all
+      # prevent libtool from picking up host libs
+      unset LD_LIBRARY_PATH
     '';
   };
 in fhs.env
