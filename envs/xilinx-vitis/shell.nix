@@ -28,6 +28,8 @@
     glib
     gtk2
     gtk3
+    libxcrypt-legacy # required for Vivado
+    python3
 
     # to compile some xilinx examples
     opencl-clhpp
