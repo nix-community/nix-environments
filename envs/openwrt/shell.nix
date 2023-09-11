@@ -46,4 +46,4 @@ let
       export hardeningDisable=all
     '';
   };
-in fhs.env
+in fhs
