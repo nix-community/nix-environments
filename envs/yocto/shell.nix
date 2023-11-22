@@ -1,42 +1,60 @@
-{ pkgs ? import <nixpkgs> {}
-, extraPkgs ? []
+{ pkgs ? import <nixpkgs> { }
+, extraPkgs ? [ ]
 }:
 
 let
   fhs = pkgs.buildFHSUserEnvBubblewrap {
     name = "yocto-fhs";
-    targetPkgs = pkgs: (with pkgs; [
-        attr
-        bc
-        binutils
-        bzip2
-        chrpath
-        cpio
-        diffstat
-        expect
-        file
-        gcc
-        gdb
-        git
-        gnumake
-        hostname
-        kconfig-frontends
-        libxcrypt
-        lz4
-        ncurses
-        patch
-        perl
-        python3
-        rpcsvc-proto
-        unzip
-        util-linux
-        wget
-        which
-        xz
-        zlib
-        zstd
-      ] ++ extraPkgs);
-    multiPkgs = null;
+    targetPkgs = pkgs: with pkgs; let
+      ncurses' = pkgs.ncurses5.overrideAttrs
+        (old: {
+          configureFlags = old.configureFlags ++ [ "--with-termlib" ];
+          postFixup = "";
+        });
+    in
+    (with pkgs; [
+      attr
+      bc
+      binutils
+      bzip2
+      chrpath
+      cpio
+      diffstat
+      expect
+      file
+      gcc
+      gdb
+      git
+      gnumake
+      hostname
+      kconfig-frontends
+      libxcrypt
+      lz4
+      # https://github.com/NixOS/nixpkgs/issues/218534
+      # postFixup would create symlinks for the non-unicode version but since it breaks
+      # in buildFHSUserEnv, we just install both variants
+      ncurses'
+      (ncurses'.override { unicodeSupport = false; })
+      patch
+      perl
+      python3
+      rpcsvc-proto
+      unzip
+      util-linux
+      wget
+      which
+      xz
+      zlib
+      zstd
+    ] ++ (with pkgs.xorg; [
+      libX11
+      libXext
+      libXrender
+      libXi
+      libXtst
+      libxcb
+    ]) ++ extraPkgs);
+    multiPkgs = ps: [ ];
     extraOutputsToInstall = [ "dev" ];
     profile =
       let
@@ -89,4 +107,5 @@ let
         export BBPOSTCONF="${nixconf}"
       '';
   };
-in fhs.env
+in
+fhs.env
