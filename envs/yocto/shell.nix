@@ -46,6 +46,9 @@ let
       xz
       zlib
       zstd
+      bison
+      flex
+      pkg-config
     ] ++ (with pkgs.xorg; [
       libX11
       libXext
