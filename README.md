@@ -22,6 +22,7 @@ What environments should **not** include:
 | [Arduino](envs/arduino)                         | `arduino`             |
 | [cc2538-bsl](envs/cc2538-bsl)                   | `cc2538-bsl`          |
 | [Jruby](envs/jruby)                             | `jruby`               |
+| [Firefox](envs/firefox)                         | `firefox`             |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
 | [Homeassistant](envs/home-assistant)            | `home-assistant`      |
 | [Nannou](envs/nannou)                           | `nannou`              |
