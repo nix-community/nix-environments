@@ -15,7 +15,9 @@ pkgs.mkShell {
   ];
   # fix homeassistant-pyozw build
   NIX_CFLAGS_COMPILE = [ "-Wno-error=format-security" ];
+  LD_LIBRARY_PATH = lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
   buildInputs = with pkgs; [
+    gcc
     libxml2
     openssl
     libxslt
