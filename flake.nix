@@ -7,6 +7,10 @@
     in {
       devShells = nixpkgs.lib.genAttrs systems (system: import ./. {
         pkgs = import nixpkgs { inherit system; };
+        pkgsUnfree = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
       });
     };
 }

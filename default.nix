@@ -1,7 +1,10 @@
-{ pkgs ? import <nixpkgs> {} }: {
+{ pkgs ? import <nixpkgs> {}
+, pkgsUnfree ? import <nixpkgs> { config = { allowUnfree = true; }; }
+}: {
   arduino = import ./envs/arduino/shell.nix { inherit pkgs; };
   cc2538-bsl = import ./envs/cc2538-bsl/shell.nix { inherit pkgs; };
   firefox = import ./envs/firefox/shell.nix { inherit pkgs; };
+  infinitime = import ./envs/infinitime/shell.nix { pkgs = pkgsUnfree; };
   github-pages = import ./envs/github-pages/shell.nix { inherit pkgs; };
   home-assistant = import ./envs/home-assistant/shell.nix { inherit pkgs; };
   nannou = import ./envs/nannou/shell.nix { inherit pkgs; };
