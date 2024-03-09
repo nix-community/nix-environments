@@ -17,7 +17,6 @@ pkgs.mkShell {
   NIX_CFLAGS_COMPILE = [ "-Wno-error=format-security" ];
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
   buildInputs = with pkgs; [
-    gcc
     libxml2
     openssl
     libxslt
