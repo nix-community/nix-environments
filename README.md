@@ -64,6 +64,23 @@ in (phoronix.overrideAttrs (old: {
 }))
 ```
 
+To provide additional packages to buildFHSUserEnv-based environments you can use the `extraPkgs` attribute and `import` 
+the shell file directly:
+
+```nix
+{pkgs ? import <nixpkgs> {}}: 
+let
+  yoctoEnv = ((builtins.fetchTarball {
+      url = "https://github.com/nix-community/nix-environments/archive/master.tar.gz";
+    })
+    + "/envs/yocto/shell.nix");
+in
+  (import yoctoEnv) {
+    inherit pkgs;
+    extraPkgs = [pkgs.hello];
+  }
+```
+
 ### Nix Flakes
 
 Nix-environments are also available as Flake outputs. Flakes are an [experimental new way to handle Nix expressions](https://nixos.wiki/wiki/Flakes).
