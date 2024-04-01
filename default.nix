@@ -5,6 +5,7 @@
   cc2538-bsl = import ./envs/cc2538-bsl/shell.nix { inherit pkgs; };
   firefox = import ./envs/firefox/shell.nix { inherit pkgs; };
   infinitime = import ./envs/infinitime/shell.nix { pkgs = pkgsUnfree; };
+  infinisim = import ./envs/infinisim/shell.nix { inherit pkgs; };
   github-pages = import ./envs/github-pages/shell.nix { inherit pkgs; };
   home-assistant = import ./envs/home-assistant/shell.nix { inherit pkgs; };
   jruby = import ./envs/jruby/shell.nix { inherit pkgs; };
