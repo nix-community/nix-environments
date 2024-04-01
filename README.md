@@ -32,6 +32,7 @@ What environments should **not** include:
 | [Yocto](envs/yocto)                             | `yocto`               |
 | [Xilinx vitis](envs/xilinx-vitis)               | `xilinx-vitis`        |
 | [InfiniSim](envs/infinisim)                     | `infinisim`           |
+| [InfiniTime](envs/infinitime)                   | `infinitime`          |
 
 ## How to use
 
