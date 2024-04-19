@@ -7,8 +7,8 @@ pkgs.mkShell {
     bashInteractive
     pkg-config
     autoreconfHook
-    python3.pkgs.setuptools
-    python3
+    python312.pkgs.setuptools
+    python312
     libxslt
     doxygen
     graphviz
