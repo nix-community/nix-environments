@@ -85,7 +85,7 @@ in
 
 ### Nix Flakes
 
-Nix-environments are also available as Flake outputs. Flakes are an [experimental new way to handle Nix expressions](https://nixos.wiki/wiki/Flakes).
+Nix-environments are also available as Flake outputs. Flakes are an [experimental new way to handle Nix expressions](https://wiki.nixos.org/wiki/Flakes).
 
 For dropping into the environment for the OpenWRT project, just run:
 
