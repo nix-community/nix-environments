@@ -37,7 +37,7 @@ let
       (ncurses'.override { unicodeSupport = false; })
       patch
       perl
-      (python3.withPackages (ps: [ ps.setuptools ]))
+      (python3.withPackages (ps: [ ps.setuptools ps.pyaml ]))
       rpcsvc-proto
       unzip
       util-linux
