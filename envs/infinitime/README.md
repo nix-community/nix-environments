@@ -19,3 +19,5 @@ $ make -j6 pinetime-app
 Note that the `ARM_NONE_EABI_TOOLCHAIN_PATH` is just `/usr` as everything is linked there.
 
 Further build instructions: https://github.com/InfiniTimeOrg/InfiniTime/blob/main/doc/buildAndProgram.md
+
+This `shell.nix` works with `direnv`.
