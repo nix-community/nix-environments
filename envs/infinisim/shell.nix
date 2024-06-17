@@ -1,6 +1,7 @@
-{ pkgs ? import <nixpkgs> {}, extraPkgs ? []
+{
+  pkgs ? import <nixpkgs> {},
+  extraPkgs ? []
 }:
-
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     cmake
@@ -9,6 +10,7 @@ pkgs.mkShell {
     libpng
     gcc12
     ccache
+    libpng12
     (python3.withPackages(python: [
       python.pillow
     ]))
