@@ -6,7 +6,7 @@ For more info checkout [buildroot over on GitLab](https://gitlab.com/buildroot.o
 
 ## Remarks
 
-- I was not able to get this working on 23.11, have yet to try it on 24.05
+- works on unstable, but not on 23.11. 24.05 has not been tested.
 - For reasons explained in comments this adds two scripts to the shell needed for gcc backwards compatibility
 - This adds ccache, which is an optional dependency but one that speeds up consecutive builds tremendously
 - Some dependencies are not mentioned in the docs (yet) - they were found by trial and error
