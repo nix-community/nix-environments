@@ -1,7 +1,7 @@
 {
   # Unstable is required as stable does not contain required glib
   pkgs ? import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz";
+    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz"; # TODO: Remove unstable override, when we have 24.11
   }) { }
 , extraPkgs ? []
 }:
