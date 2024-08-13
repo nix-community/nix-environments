@@ -31,6 +31,7 @@ let
       (python3.withPackages (ps: [ ps.setuptools ]))
       rsync
       subversion
+      swig
       systemd
       unzip
       util-linux
