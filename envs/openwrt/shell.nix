@@ -28,7 +28,7 @@ let
       patch
       perl
       pkg-config
-      python3
+      (python3.withPackages (ps: [ ps.setuptools ]))
       rsync
       subversion
       systemd
