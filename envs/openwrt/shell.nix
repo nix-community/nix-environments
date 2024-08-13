@@ -16,29 +16,28 @@ let
   fhs = pkgs.buildFHSUserEnv {
     name = "openwrt-env";
     targetPkgs = pkgs: with pkgs; [
-      git
-      perl
-      gnumake
+      binutils
+      file
+      fixWrapper
       gcc
-      unzip
-      util-linux
+      git
+      glibc.static
+      gnumake
+      ncurses
+      openssl
+      patch
+      perl
+      pkg-config
       python3
       rsync
-      patch
-      wget
-      file
       subversion
-      which
-      pkg-config
-      openssl
-      fixWrapper
       systemd
-      binutils
-
-      ncurses
+      unzip
+      util-linux
+      wget
+      which
       zlib
       zlib.static
-      glibc.static
     ] ++ extraPkgs;
     multiPkgs = null;
     extraOutputsToInstall = [ "dev" ];
