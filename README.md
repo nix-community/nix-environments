@@ -23,6 +23,7 @@ What environments should **not** include:
 | [cc2538-bsl](envs/cc2538-bsl)                   | `cc2538-bsl`          |
 | [Jruby](envs/jruby)                             | `jruby`               |
 | [Firefox](envs/firefox)                         | `firefox`             |
+| [Git](envs/git)                                 | `git`                 |
 | [Github Pages](envs/github-pages)               | `github-pages`        |
 | [Homeassistant](envs/home-assistant)            | `home-assistant`      |
 | [Nannou](envs/nannou)                           | `nannou`              |
