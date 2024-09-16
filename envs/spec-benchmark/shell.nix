@@ -3,7 +3,8 @@
 }:
 
 let
-  specgcc = pkgs.gcc6;
+  # does it still work with the latest version? we had gcc6 before
+  specgcc = pkgs.gcc;
 
   fixWrapper = pkgs.runCommand "fix-wrapper" {} ''
     mkdir -p $out/bin
