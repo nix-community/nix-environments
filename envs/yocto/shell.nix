@@ -11,6 +11,12 @@ let
           configureFlags = old.configureFlags ++ [ "--with-termlib" ];
           postFixup = "";
         });
+      lz4' = pkgs.lz4.overrideAttrs
+        (old: {
+          postInstall = ''
+            ln -rs $out/bin/lz4 $out/bin/lz4c
+          '';
+        });
     in
     (with pkgs; [
       attr
@@ -29,7 +35,7 @@ let
       hostname
       kconfig-frontends
       libxcrypt
-      lz4
+      lz4'
       # https://github.com/NixOS/nixpkgs/issues/218534
       # postFixup would create symlinks for the non-unicode version but since it breaks
       # in buildFHSUserEnv, we just install both variants
