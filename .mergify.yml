@@ -1,16 +1,14 @@
 queue_rules:
   - name: default
-    merge_conditions:
-      - check-success=tests
-defaults:
-  actions:
-    queue:
-      allow_merging_configuration_change: true
-      method: rebase
-pull_request_rules:
-  - name: merge using the merge queue
-    conditions:
+    queue_conditions:
       - base=master
       - label~=merge-queue|dependencies
+    merge_conditions:
+      - check-success=tests
+    merge_method: rebase
+
+pull_request_rules:
+  - name: refactored queue action rule
+    conditions: []
     actions:
-      queue: {}
+      queue:
