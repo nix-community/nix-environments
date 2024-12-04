@@ -7,15 +7,18 @@ pkgs.mkShell {
     bashInteractive
     pkg-config
     autoreconfHook
-    python312.pkgs.setuptools
-    python312
+    python313.pkgs.setuptools
+    python313
+    libjpeg
     libxslt
     doxygen
     graphviz
+    isa-l
+    zlib-ng
   ];
   # fix homeassistant-pyozw build
   NIX_CFLAGS_COMPILE = [ "-Wno-error=format-security" ];
-  LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
+  LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [ stdenv.cc.cc libjpeg ];
   buildInputs = with pkgs; [
     libxml2
     openssl
