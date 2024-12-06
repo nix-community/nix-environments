@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> { }
 , extraPkgs ? [ ]
+, extraPythonPkgs ? [ ]
 }:
 
 let
@@ -43,7 +44,7 @@ let
       (ncurses'.override { unicodeSupport = false; })
       patch
       perl
-      (python3.withPackages (ps: [ ps.setuptools ps.pyaml ]))
+      (python3.withPackages (ps: [ ps.setuptools ps.pyaml ] ++ extraPythonPkgs))
       rpcsvc-proto
       unzip
       util-linux
