@@ -10,7 +10,6 @@ pkgs.stdenv.mkDerivation {
     popt
     libaio
     perl
-    gcc7
     pcre
     glibc.out
     glibc.static
