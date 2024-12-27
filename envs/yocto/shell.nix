@@ -36,6 +36,7 @@ let
       hostname
       kconfig-frontends
       libxcrypt
+      libxcrypt-legacy
       lz4'
       # https://github.com/NixOS/nixpkgs/issues/218534
       # postFixup would create symlinks for the non-unicode version but since it breaks
