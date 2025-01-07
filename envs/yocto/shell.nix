@@ -4,7 +4,7 @@
 }:
 
 let
-  fhs = pkgs.buildFHSUserEnvBubblewrap {
+  fhs = pkgs.buildFHSEnvBubblewrap {
     name = "yocto-fhs";
     targetPkgs = pkgs: with pkgs; let
       ncurses' = pkgs.ncurses5.overrideAttrs
@@ -40,7 +40,7 @@ let
       lz4'
       # https://github.com/NixOS/nixpkgs/issues/218534
       # postFixup would create symlinks for the non-unicode version but since it breaks
-      # in buildFHSUserEnv, we just install both variants
+      # in buildFHSEnv, we just install both variants
       ncurses'
       (ncurses'.override { unicodeSupport = false; })
       patch
@@ -102,7 +102,7 @@ let
         '';
       in
       ''
-        # buildFHSUserEnvBubblewrap configures ld.so.conf while buildFHSUserEnv additionally sets the LD_LIBRARY_PATH.
+        # buildFHSEnvBubblewrap configures ld.so.conf while buildFHSEnv additionally sets the LD_LIBRARY_PATH.
         # This is redundant, and incorrectly overrides the RPATH of yocto-built binaries causing the dynamic loader
         # to load libraries from the host system that they were not built against, instead of those from yocto.
         unset LD_LIBRARY_PATH
@@ -111,7 +111,7 @@ let
         # ld-config causing unexpected libraries to be loaded when when the executable is run.
         export NIX_DYNAMIC_LINKER_${pkgs.stdenv.cc.suffixSalt}="/lib/ld-linux-x86-64.so.2"
 
-        # These are set by buildFHSUserEnvBubblewrap
+        # These are set by buildFHSEnvBubblewrap
         export BB_ENV_PASSTHROUGH_ADDITIONS="${lib.strings.concatStringsSep " " passthroughVars}"
 
         # source the config for bibake equal to --postread
