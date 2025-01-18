@@ -11,6 +11,7 @@ let
     for i in ${pkgs.gcc.cc}/bin/*-gnu-{g++,c++}*; do
       ln -s ${pkgs.gcc}/bin/g++ $out/bin/$(basename "$i")
     done
+    ln -sf ${pkgs.gcc.cc}/bin/{,*-gnu-}gcc-{ar,nm,ranlib} $out/bin
   '';
 
   fhs = pkgs.buildFHSUserEnv {
