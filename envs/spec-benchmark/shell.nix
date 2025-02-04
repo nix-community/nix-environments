@@ -16,7 +16,7 @@ let
     done
   '';
 
-  fhs = pkgs.buildFHSUserEnv {
+  fhs = pkgs.buildFHSEnv {
     name = "spec-env";
     targetPkgs = pkgs: with pkgs; [
       # higher priority then the default gcc
