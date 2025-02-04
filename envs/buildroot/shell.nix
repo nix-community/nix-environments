@@ -38,7 +38,7 @@ in
   # Unfortunately the more versatile and nix-nativ mkShell does not work
   # for buildroot as some of the paths are hardcoded and expect a usual
   # linux posix-compliant file system structure
-  (pkgs.buildFHSUserEnv {
+  (pkgs.buildFHSEnv {
     name = "buildroot";
     targetPkgs = pkgs: (with pkgs; [
       (lib.hiPrio gcc)

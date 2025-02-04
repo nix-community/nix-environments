@@ -12,4 +12,4 @@ For more info checkout [buildroot over on GitLab](https://gitlab.com/buildroot.o
 - Some dependencies are not mentioned in the docs (yet) - they were found by trial and error
 - At the time of writing buildroot under nixos suffers from incompatibility between their systemd version and nixos's kernel headers
   A patch from the mailing list has to be applied: https://lore.kernel.org/all/20240515144432.3152351-1-bruce.ashfield@gmail.com/T/
-- buildFHSUserEnv is required as buildroot tooling has some hardcoded paths expecting a "usual" linux FS
+- buildFHSEnv is required as buildroot tooling has some hardcoded paths expecting a "usual" linux FS
