@@ -14,7 +14,7 @@ let
     ln -sf ${pkgs.gcc.cc}/bin/{,*-gnu-}gcc-{ar,nm,ranlib} $out/bin
   '';
 
-  fhs = pkgs.buildFHSUserEnv {
+  fhs = pkgs.buildFHSEnv {
     name = "openwrt-env";
     targetPkgs = pkgs: with pkgs; [
       binutils

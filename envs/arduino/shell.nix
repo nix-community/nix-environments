@@ -2,7 +2,7 @@
 , extraPkgs ? []
 }:
 
-(pkgs.buildFHSUserEnv {
+(pkgs.buildFHSEnv {
   name = "arduino-env";
   targetPkgs = pkgs: with pkgs; [
     ncurses
