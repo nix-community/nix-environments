@@ -7,7 +7,6 @@ pkgs.mkShell {
     bashInteractive
     pkg-config
     autoreconfHook
-    python313.pkgs.setuptools
     python313
     libjpeg
     libxslt
