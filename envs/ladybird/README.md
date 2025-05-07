@@ -13,7 +13,7 @@ Clone the repository & enter the shell:
 
 ```
 git clone https://github.com/LadybirdBrowser/ladybird
-nix develop
+nix develop --no-write-lock-file github:nix-community/nix-environments#ladybird
 ```
 
 First invoke `cmake` directly. For example:
