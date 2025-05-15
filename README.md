@@ -36,6 +36,7 @@ What environments should **not** include:
 | [InfiniTime](envs/infinitime)                   | `infinitime`          |
 | [Ladybird](envs/ladybird)                       | `ladybird`            |
 | [buildroot](envs/buildroot)                     | `buildroot`           |
+| [zmk](envs/zmk)                                 | `zmk`                 |
 
 ## How to use
 
