@@ -6,8 +6,13 @@
 
 Ladybird's build system uses vcpkg to vendor third-party dependencies, which proves undesirable to
 use with Nix for [several reasons](https://github.com/LadybirdBrowser/ladybird/issues/371).
-As a result, using `ladybird.sh` to compile and run Ladybird will fail. Therefore, it is necessary
+As a result, using `ladybird.py` to compile and run Ladybird will fail. Therefore, it is necessary
 to use system packages provided by this environment.
+
+This environment exports `ICU_ROOT` and sets `FONTCONFIG_FILE` (pointing to `dejavu_fonts` and
+`liberation_ttf`). Both are required: without `ICU_ROOT` cmake cannot locate ICU headers, and
+without the font configuration Ladybird crashes with `SIGILL` on startup because its font
+fallback lists require fonts not present in a default NixOS installation.
 
 Clone the repository & enter the shell:
 
