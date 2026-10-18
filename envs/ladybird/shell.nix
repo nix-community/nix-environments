@@ -3,6 +3,14 @@
   extraPkgs ? [],
   ...
 }:
+let
+  ffmpeg-ladybird = pkgs.runCommand "ffmpeg-ladybird" {} ''
+    mkdir -p $out/lib/pkgconfig
+    for lib in avcodec avformat avutil swresample; do
+      ln -s ${pkgs.ffmpeg.dev}/lib/pkgconfig/lib$lib.pc $out/lib/pkgconfig/lib$lib-ladybird.pc
+    done
+  '';
+in
 pkgs.mkShell {
   name = "ladybird-env";
 
@@ -10,12 +18,13 @@ pkgs.mkShell {
     pkgs.ladybird
   ];
 
+  buildInputs = [ ffmpeg-ladybird ];
+
   packages = with pkgs; [
     ccache
     clang-tools
     prettier
     icu78.dev
-    mimalloc
     dejavu_fonts
     liberation_ttf
   ] ++ extraPkgs;

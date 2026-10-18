@@ -21,11 +21,11 @@ git clone https://github.com/LadybirdBrowser/ladybird
 nix develop --no-write-lock-file github:nix-community/nix-environments#ladybird
 ```
 
-Note that if the build fails due to the process lto1-wpt using too much memory, the `ENABLE_LTO_FOR_RELEASE` option should be turned off.
+LTO must be turned off: with `ENABLE_LTO_FOR_RELEASE` on, release builds crash on startup in
+`QApplication`, and lto1-wpt may run out of memory while building.
 
 First invoke `cmake` directly. For example:
 
- - `cmake -GNinja -BBuild/release`
  - `cmake -DENABLE_LTO_FOR_RELEASE=OFF -GNinja -BBuild/release`
  - `cmake -DCMAKE_BUILD_TYPE=Debug -GNinja -BBuild/debug`
  - `cmake -DENABLE_LAGOM_CCACHE=True -GNinja -BBuild/debug`
