@@ -60,14 +60,13 @@ let
       bison
       flex
       pkg-config
-    ] ++ (with pkgs.xorg; [
       libX11
       libXext
       libXrender
       libXi
       libXtst
       libxcb
-    ]) ++ extraPkgs;
+    ] ++ extraPkgs;
     multiPkgs = ps: [ ];
     extraOutputsToInstall = [ "dev" ];
     profile =
